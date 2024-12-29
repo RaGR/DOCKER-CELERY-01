@@ -1,0 +1,17 @@
+version: '3.8'
+
+service:
+
+  django:
+    cintainer_name: django
+    build:
+      context: ./projectCelery
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./projectCelery:/usr/src/app/
+    ports:
+      - 8001:8000
+    envirement:
+      - DEBUG=1
+      - SECRET_KEY=ODFSDMGP1024JPPCMP1
+      - ALLOWED_HOSTS=localhost,127.0.0.1,192.168.56.101
